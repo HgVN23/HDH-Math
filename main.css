@@ -1,0 +1,68 @@
+@font-face {
+	font-family: scp;
+	src: url(SourceCodePro-Regular.ttf);
+}
+:root {
+	--border: 2px solid #525252;
+	--bg: #171717;
+	--hover-color: #1d4ed8;
+	--bg-main: #262626;
+}
+* {
+	scroll-behavior: smooth;
+/*	user-select: none;*/
+	margin: 0;
+	padding: 0;
+	font-family: scp;
+	font-size: 16px;
+	color: white;
+	-webkit-user-drag: none;
+/*	outline: 1px solid blue;*/
+}
+::selection {
+	color: aqua;
+}
+body {
+	background-color: var(--bg-main);
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+::-webkit-scrollbar {
+	background-color: var(--bg-main);
+	width: 10px;
+}
+::-webkit-scrollbar-thumb {
+	background-color: #525252;
+}
+::-webkit-scrollbar-thumb:hover {
+	background-color: var(--hover-color);
+}
+
+.flex {
+	display: flex;
+	gap: 1rem;
+}
+input[type=number] {
+	background-color: transparent;
+	width: 4rem;
+	border: var(--border);
+	padding: .1rem;
+}
+input[type=radio] {
+	width: 1rem;
+}
+input:disabled {
+	color: grey;
+}
+button {
+	background-color: transparent;
+	width: fit-content;
+	cursor: pointer;
+	padding: 1rem;
+}
+.warning {
+	color: red;
+	user-select: none;
+}
