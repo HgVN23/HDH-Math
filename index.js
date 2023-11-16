@@ -67,15 +67,13 @@ function unlockRun() {
 	const lock = document.querySelectorAll('.convert');
 	const unlock = document.querySelectorAll('.unlock');
 	for(var i = 0; i < lock.length; i++) {
-		if(lock[i].disabled) {
+		if(lock[i].disabled)
 			lock[i].disabled = false;
-			unlock[0].classList.toggle('pickLock')
-		}
-		else {
+		else
 			lock[i].disabled = true;
-			unlock[1].classList.toggle('pickLock')
-		}
 	}
+	unlock[0].classList.toggle('pickLock');
+	unlock[1].classList.toggle('pickLock');
 }
 
 function convertRun(id) {
