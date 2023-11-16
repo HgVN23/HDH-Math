@@ -69,6 +69,9 @@ button {
 	color: red;
 	user-select: none;
 }
+hr {
+	margin: .2rem 0;
+}
 
 @media (max-width: 588px) {
 	* {
