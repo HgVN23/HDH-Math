@@ -47,7 +47,7 @@ function genTable() {
 			table += `<tr>${temp}</tr>`;
 			temp = ``;
 		}
-		table += `<tr><th colspan="4">${typeTable[iTT]}</th></tr>`;
+		table += `<tr><th colspan="${m + 1}">${typeTable[iTT]}</th></tr>`;
 		document.querySelector('#addTable').innerHTML += `<table>${table}</table>`;
 	}
 
