@@ -147,6 +147,7 @@ function run() {
 				for(var j = 0; j < m; j++) {
 					if(needArray[i][j] > availableArray[j]) {
 						final.innerHTML += `
+							<hr>
 							<li>i = ${i} ${genDataArr(needArray[i], m)} > ${genDataArr(availableArray, m)}</li>
 							<div>-> không cấp</div>
 						`;
