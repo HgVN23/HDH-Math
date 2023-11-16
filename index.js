@@ -27,7 +27,7 @@ function genTable() {
 		addM.innerHTML += `<input class="convert" type="number" id="m${i}" value="0" onchange="convertRun(this.id.slice(1))">`;
 	}
 
-	addA.innerHTML += `<input class="unlock" type="radio" name="unlock" value="a"><div>Available có</div>`;
+	addA.innerHTML += `<input class="unlock" type="radio" name="unlock" value="a"><div>Available_ có</div>`;
 	for(var i = 0; i < m; i++) {
 		addA.innerHTML += `<input class="convert" type="number" id="a${i}" value="0" disabled onchange="convertRun(this.id.slice(1))">`;
 	}
