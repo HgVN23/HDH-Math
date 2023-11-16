@@ -22,15 +22,19 @@ function genTable() {
 	n = document.querySelector('#n').value;
 	m = document.querySelector('#m').value;
 
+	var group = ``;
 	addM.innerHTML += `<input class="unlock pickLock" type="radio" name="unlock" value="m" checked><div>Tài nguyên có</div>`;
 	for(var i = 0; i < m; i++) {
-		addM.innerHTML += `<input class="convert" type="number" id="m${i}" value="0" onchange="convertRun(this.id.slice(1))">`;
+		group += `<input class="convert" type="number" id="m${i}" value="0" onchange="convertRun(this.id.slice(1))">`;
 	}
+	addM.innerHTML += `<div class="flex">${group}</div>`;
 
+	group = ``;
 	addA.innerHTML += `<input class="unlock" type="radio" name="unlock" value="a"><div>Available_ có</div>`;
 	for(var i = 0; i < m; i++) {
-		addA.innerHTML += `<input class="convert" type="number" id="a${i}" value="0" disabled onchange="convertRun(this.id.slice(1))">`;
+		group += `<input class="convert" type="number" id="a${i}" value="0" disabled onchange="convertRun(this.id.slice(1))">`;
 	}
+	addA.innerHTML += `<div class="flex">${group}</div>`;
 
 	for(var iTT = 0; iTT < typeTable.length; iTT++) {
 		var table = ``;
@@ -142,13 +146,23 @@ function run() {
 			if(!orderN.includes(i)) {
 				for(var j = 0; j < m; j++) {
 					if(needArray[i][j] > availableArray[j]) {
-						final.innerHTML += `<li>i = ${i} ${genDataArr(needArray[i], m)} > ${genDataArr(availableArray, m)} -> không cấp</li>`;
+						final.innerHTML += `
+							<li>i = ${i} ${genDataArr(needArray[i], m)} > ${genDataArr(availableArray, m)}</li>
+							<div>-> không cấp</div>
+						`;
 						check = false;
 						break;
 					}
 				}
 				if(check) {
-					final.innerHTML += `<li>i = ${i} ${genDataArr(needArray[i], m)} < ${genDataArr(availableArray, m)} -> cấp cho P${i} => P${i} hoàn thành => trả lại ${genDataArr(allocationArray[i], m)} => work(mới) = ${genDataArr(availableArray, m)} + ${genDataArr(allocationArray[i], m)} = ${cal(availableArray, allocationArray[i])}</li>`;
+					final.innerHTML += `
+						<hr>
+						<li>i = ${i} ${genDataArr(needArray[i], m)} < ${genDataArr(availableArray, m)}</li>
+						<div>-> cấp cho P${i}</div>
+						<div>=> P${i} hoàn thành</div>
+						<div>=> trả lại ${genDataArr(allocationArray[i], m)}</div>
+						<div>=> work(mới) = ${genDataArr(availableArray, m)} + ${genDataArr(allocationArray[i], m)} = ${cal(availableArray, allocationArray[i])}</li>
+					`;
 					orderN.push(i);
 				}
 				check = true;

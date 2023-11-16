@@ -44,6 +44,9 @@ body {
 	display: flex;
 	gap: 1rem;
 }
+label ~ input[type=number] {
+	margin: .1rem 0;
+}
 input[type=number] {
 	background-color: transparent;
 	width: 4rem;
@@ -65,4 +68,17 @@ button {
 .warning {
 	color: red;
 	user-select: none;
+}
+
+@media (max-width: 588px) {
+	* {
+		font-size: 14px;
+	}
+	.flex {
+		flex-wrap: wrap;
+		gap: .3rem;
+	}
+	input[type=number] {
+		width: 3rem;
+	}
 }
